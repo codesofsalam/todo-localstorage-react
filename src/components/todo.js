@@ -1,12 +1,24 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import todolist from '../images/todolist.png';
 import "../App.css";
 
 
 
+const getlocalItems=()=>{
+  let list =localStorage.getItem('lists');
+  console.log(list);
+
+  if(list){
+    return JSON.parse(localStorage.getItem('lists'));
+  } else{
+    return [];
+  }
+}
+
+
 const Todo = () => {
   const[inputData, setInput]=useState('');
-  const [items, setItems]=useState([]);
+  const [items, setItems]=useState(getlocalItems());
 
   const addItem=() => {
     if(!inputData){
@@ -31,6 +43,10 @@ setItems(updatedItems);
   const removeAll=()=>{
     setItems([]);
   }
+
+  useEffect(()=>{
+localStorage.setItem('lists', JSON.stringify(items));  
+  },[items]);
   return (
     <>
     <div className='main-div'>
