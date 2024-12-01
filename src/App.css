@@ -1,38 +1,188 @@
-.App {
+/* Main Container Styles */
+.main-div {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.child-main {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Figure and Image Styles */
+figure {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+figure img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+figcaption {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+/* Input Section Styles */
+.addItems {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #6B73FF;
+  outline: none;
+  box-shadow: 0 0 10px rgba(107, 115, 255, 0.2);
+}
+
+.add-btn {
+  background: #6B73FF;
+  color: white;
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-btn:hover {
+  background: #000DFF;
+  transform: scale(1.05);
+}
+
+/* Todo Items Styles */
+.showItems {
+  margin-top: 20px;
+}
+
+.eachItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8f9fa;
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.eachItem:hover {
+  transform: translateX(5px);
+  background: #f1f3f5;
+}
+
+.eachItem h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+/* Remove All Button Styles */
+.btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  background: #6B73FF;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn:hover {
+  background: #000DFF;
+}
+
+.effect04 {
+  position: relative;
+}
+
+.effect04:hover span {
+  transform: scale(1.05);
+}
+
+.effect04::before {
+  content: attr(data-sm-link-text);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  color: white;
+  transition: all 0.3s ease;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.effect04:hover::before {
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.effect04:hover span {
+  opacity: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .child-main {
+    padding: 20px;
+  }
+  
+  figcaption {
+    font-size: 1.2rem;
+  }
+  
+  .btn {
+    font-size: 1rem;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
+/* Animation Keyframes */
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(10px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+.eachItem {
+  animation: fadeIn 0.3s ease forwards;
 }
