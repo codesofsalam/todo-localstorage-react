@@ -2,6 +2,11 @@
 
 A To-Do list app built with React.js that stores tasks in local storage. It allows users to add, edit, mark as completed, and remove tasks, keeping them saved even after a page refresh.
 
+### Prerequisites
+
+- Node.js
+- npm
+
 ## Features
 
 - Add new tasks
